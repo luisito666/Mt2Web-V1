@@ -1,1 +1,420 @@
 /* You can add global styles to this file, and also import other style files */
+html,body {
+    margin:0px;    
+    height:100%;
+}
+
+#main {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 980px) and (orientation: portrait) {
+    /* Barra de menú */
+    .bar {
+        position: fixed;
+        top:0%; 
+        z-index: 1; 
+        width: 100%;
+        height: 14%;
+        background: url(/assets/img/SM_/Metin2_Bar.png) no-repeat;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .bar > .bar_logo {
+        background: url(/assets/img/SM_/Metin2_logo2.png) no-repeat center;
+        height: 33%;
+        width: 27%;
+        margin: 5%;
+        border: none;
+    }
+
+    .bar > .sign_in {
+        margin: 6%;
+        color: white;
+        font-size: 2.5em;
+    }
+
+    /* Clase para manejar cada capitulo */
+    .cap {
+        display: inline-block;
+        width: 100%;
+        height: 90%;
+        margin: 0%;
+        padding: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+
+    /* Clases para el manejo de los textos en cada capitulo */
+    .cap > .text {
+        flex-grow: 1;
+        flex-basis: 0%;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cap > .text > h3 {
+        font-size: 4em;
+        margin: 0;
+    }
+    .cap > .text > p {
+        font-size: 3em;
+        text-align: center;
+        margin: 0%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .cap > .text > .btn_download {
+        margin-top: 3%;
+        height: 8%;
+        width: 40%;
+        border-radius: 40px;
+        background: linear-gradient(#FFFDD5, #FF6738);
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Maneja las listas en los capitulos */
+    .cap > .text > ul {
+        font-size: 3em;
+        text-align: justify;
+    }
+
+    /* MAnejan las posiciones de los personajes en cada capitulo*/
+    .cap > .character {
+        flex-grow: 1;
+        flex-basis: 0%;
+        align-self: flex-start;
+        height: 50%;
+    }
+    .cap > .inverse_character{
+        align-self: flex-end;
+    }
+
+    /* Clases para manejar el capitulo 1 */
+    .logo {
+        background: url(/assets/img/SM_/Metin2_logo.png) no-repeat center;
+        height: 12%;
+        width: 60%;
+        margin: 5%;
+        border: none;
+    }
+    .btn_play_now {
+        height: 8%;
+        width: 40%;
+        border-radius: 40px;
+        background: linear-gradient(#FFFDD5, #FF6738);
+        font-size: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Capitulos */
+    .cap1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url(/assets/img/SM_/SM_Metin2_background_0.jpg) no-repeat center;
+    }
+    .cap2 {
+        background: url(/assets/img/SM_/SM_Metin2_background_1.jpg) no-repeat center;
+    }
+    
+    .cap3 {
+        background: url(/assets/img/SM_/SM_Metin2_background_2.jpg) no-repeat center;
+    }
+    .cap4 {
+        background: url(/assets/img/SM_/SM_Metin2_background_3.jpg) no-repeat center;
+    }
+    .cap6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url(/assets/img/SM_/SM_Metin2_background_4.jpg) no-repeat center;
+    }
+    .cap7 {
+        background: url(/assets/img/SM_/SM_Metin2_background_5.jpg) no-repeat center;
+    }
+    .cap8 {
+        background: url(/assets/img/SM_/SM_Metin2_background_6.jpg) no-repeat center;
+    }
+
+    /* Manejo del formulario de registro */
+    .form_sign_up {
+        display: inline-block;
+        width: 100%;
+        height: 90%;
+        margin: 0%;
+        padding: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .form_sign_up > .title_form_sign_up {
+        align-self: center;
+        font-size: 4em;
+    }
+
+    .form_sign_up > .input_sign_up > label {
+        font-size: 2.5em;
+    }
+    .form_sign_up > .input_sign_up > input {
+        font-size: 2.5em;
+        border-radius: 10px;
+    }
+
+    /* Clases que manejan los divisores */
+    .divider {
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        height: 6%;
+        background: black;
+        margin: 0%;
+        padding: 0%;
+        transform: rotate(3deg);
+        transform: skewY(2deg);
+    }
+    .divider1 {
+        top: 88%;
+    }
+    .divider2 {
+        top: 177%;
+    }
+    .divider3 {
+        top: 267%;
+    }
+    .divider4 {
+        top: 357%;
+    }
+    .divider5 {
+        top: 447%;
+    }
+    .divider6 {
+        top: 537%;
+    }
+    .divider7 {
+        top: 627%;
+    }
+    .inverse_divider {
+        transform: skewY(-2deg);
+    }
+}
+
+
+@media screen and (min-width: 980px)and (orientation: landscape) {
+    /* Barra de menú */
+    .bar {
+        position: fixed;
+        top:0%; 
+        z-index: 1; 
+        width: 100%;
+        height: 19%;
+        background: url(/assets/img/L_/L_Metin2_Bar.png) no-repeat;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .bar > .bar_logo {
+        background: url(/assets/img/L_/L_Metin2_logo2.png) no-repeat center;
+        height: 48%;
+        width: 27%;
+        margin: 2%;
+        border: none;
+    }
+
+    .bar > .sign_in {
+        margin: 2%;
+        color: white;
+        font-size: 1em;
+    }
+
+    /* Clase para manejar cada capitulo */
+    .cap {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        padding: 0%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+
+    /* Clases para el manejo de los textos en cada capitulo */
+    .cap > .text {
+        flex-grow: 1;
+        flex-basis: 0%;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cap > .text > h3 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+    .cap > .text > p {
+        font-size: 2em;
+        text-align: center;
+        margin: 0%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .cap > .text > .btn_download {
+        margin-top: 3%;
+        height: 8%;
+        width: 40%;
+        border-radius: 40px;
+        background: linear-gradient(#FFFDD5, #FF6738);
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Maneja las listas en los capitulos */
+    .cap > .text > ul {
+        font-size: 2em;
+        text-align: justify;
+    }
+
+    /* MAnejan las posiciones de los personajes en cada capitulo*/
+    .cap > .character {
+        flex-grow: 1;
+        flex-basis: 0%;
+        align-self: flex-end;
+        height: 78%;
+    }
+    .cap > .inverse_character{
+        align-self: flex-end;
+    }
+
+    /* Clases para manejar el capitulo 1 */
+    .logo {
+        background: url(/assets/img/L_/L_Metin2_logo.png) no-repeat center;
+        height: 20%;
+        width: 60%;
+        margin: 5%;
+        border: none;
+    }
+    .btn_play_now {
+        height: 8%;
+        width: 27%;
+        border-radius: 40px;
+        background: linear-gradient(#FFFDD5, #FF6738);
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Capitulos */
+    .cap1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url(/assets/img/L_/L_Metin2_background_0.jpg) no-repeat center;
+    }
+    .cap2 {
+        background: url(/assets/img/L_/L_Metin2_background_1.jpg) no-repeat center;
+    }
+    
+    .cap3 {
+        background: url(/assets/img/L_/L_Metin2_background_2.jpg) no-repeat center;
+    }
+    .cap4 {
+        background: url(/assets/img/L_/L_Metin2_background_3.jpg) no-repeat center;
+    }
+    .cap6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url(/assets/img/L_/L_Metin2_background_4.jpg) no-repeat center;
+    }
+    .cap7 {
+        background: url(/assets/img/L_/L_Metin2_background_5.jpg) no-repeat center;
+    }
+    .cap8 {
+        background: url(/assets/img/L_/L_Metin2_background_6.jpg) no-repeat center;
+    }
+
+    /* Manejo del formulario de registro */
+    .form_sign_up {
+        display: inline-block;
+        width: 100%;
+        height: 90%;
+        margin: 0%;
+        padding: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .form_sign_up > .title_form_sign_up {
+        align-self: center;
+        font-size: 4em;
+    }
+
+    .form_sign_up > .input_sign_up > label {
+        font-size: 2.5em;
+    }
+    .form_sign_up > .input_sign_up > input {
+        font-size: 2.5em;
+        border-radius: 10px;
+    }
+
+    /* Clases que manejan los divisores */
+    .divider {
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        height: 14%;
+        background: black;
+        margin: 0%;
+        padding: 0%;
+        transform: rotate(3deg);
+        transform: skewY(2deg);
+    }
+    .divider1 {
+        top: 93%;
+    }
+    .divider2 {
+        top: 193%;
+    }
+    .divider3 {
+        top: 293%;
+    }
+    .divider4 {
+        top: 393%;
+    }
+    .divider5 {
+        top: 483%;
+    }
+    .divider6 {
+        top: 583%;
+    }
+    .divider7 {
+        top: 683%;
+    }
+    .inverse_divider {
+        transform: skewY(-2deg);
+    }
+}
