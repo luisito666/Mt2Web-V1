@@ -1,50 +1,33 @@
-<section id="manager_user" class="manager_user">
+<section #manager_user id="manager_user" class="manager_user">
     <div class="menu">
         <section class="tabs_menu">
-            <button class="tabs" 
+            <button class="tabs pointer" 
                     (click)="showMenu($event, '1')" 
                     id="default"
                     style="border-top-left-radius: 10px;">
                 Personajes
             </button>
-            <button class="tabs" 
+            <button class="tabs pointer" 
                     (click)="showMenu($event, '2')">
                 Cambio de Contraseña
             </button>
-            <button class="tabs" 
+            <button class="tabs pointer" 
                     (click)="showMenu($event, '3')">
                 Donar
             </button>
         </section>
         <section class="content_menu">
             <div id="1" class="content">
-                Lista de personajes
+                <app-user-manager-players></app-user-manager-players>
             </div>
             <div id="2" class="content">
-                <form action="" method="get" class="form_chanpass">
-                    <h2 class="title_form_chanpass">
-                        Cambio de Contraseña
-                    </h2>
-                    <div class="input_form_chanpass">
-                        <label for="current_password">Contraseña Actual</label>
-                        <input type="password" name="current_password" id="current_password" placeholder="" required>
-                    </div>
-                    <div class="input_form_chanpass">
-                        <label for="new_password">Nueva Contraseña</label>
-                        <input type="password" name="new_password" id="new_password" placeholder="" required>
-                    </div>
-                    <div class="input_form_chanpass">
-                        <label for="confirm_new_password">Confirmar Contraseña</label>
-                        <input type="password" name="confirm_new_password" id="confirm_new_password" placeholder="" required>
-                    </div>
-                    <button class="button" type="submit">
-                        Aceptar
-                    </button>
-                </form>
+                <app-user-manager-passwd></app-user-manager-passwd>
             </div>
             <div id="3" class="content">
-                Donar
+                <app-user-manager-donations></app-user-manager-donations>
             </div>
         </section>
     </div>
 </section>
+<app-players></app-players>
+<app-guilds></app-guilds>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-user-manager',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class UserManagerComponent implements OnInit {
+
+  @ViewChild('manager_user') manager_user: ElementRef;
 
   constructor() { }
 

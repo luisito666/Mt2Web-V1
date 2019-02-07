@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Importando modulo de form requerido por registo
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Importando componentes de las paginas
 import { DescriptionComponent } from './description/description.component';
 import { DonationsComponent } from './donations/donations.component';
@@ -19,7 +22,11 @@ import { DownloadComponent } from './download/download.component';
         SystemreqComponent,
         DownloadComponent
     ],
-    imports: [ CommonModule ],
+    imports: [ 
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
     exports: [
         DescriptionComponent,
         DonationsComponent,
