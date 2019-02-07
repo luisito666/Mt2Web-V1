@@ -1,7 +1,13 @@
-<div class="divider divider1"></div>
 <header class="bar">
-  <div class="bar_logo"></div>
-  <a class="sign_in">
-    Iniciar Sesión
-  </a>
+    <div class="bar_logo"></div>
+    <!-- Boton de Inicio de Sesión Ocultar si ya inicio la sesión-->
+    <!--<a class="sign_in">
+        Iniciar Sesión
+    </a>-->
+    <!-- Boton de Perfil para el menú de acciones del usuario solo mostrar si inició sesión-->
+    <a class="sign_on" id="btn_manager_user" (click)="convert_flex()">
+        <span style="font-size: 4em; color: Tomato;">
+            <i class="fas fa-user-circle"></i>
+        </span>
+    </a>
 </header>

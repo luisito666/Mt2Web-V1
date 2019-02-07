@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 // Importando componentes.
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
 
 
 @NgModule({
     declarations: [
-        NavbarComponent
+        NavbarComponent,
+        UserManagerComponent
     ],
     imports: [ CommonModule ],
     exports: [
-        NavbarComponent
+        NavbarComponent,
+        UserManagerComponent
     ],
     providers: [],
 })
