@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../../services/http.service';
 
 @Component({
   selector: 'app-players',
@@ -17,59 +18,59 @@ import { Component, OnInit } from '@angular/core';
         <p class="tittle">
             Ranking de Guerreros
         </p>
-        <div class="fisrt_position text_position">
+        <div *ngIf="http.players?.results[0]" class="fisrt_position text_position">
             <div class="position">
                 1
             </div>
             <div class="war">
-                Nombre Guerrero
+                {{ http.players?.results[0]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.players?.results[0]?.level }}
             </div>
         </div>
-        <div class="second_position text_position">
+        <div *ngIf="http.players?.results[1]" class="second_position text_position">
             <div class="position">
                 2
             </div>
             <div class="war">
-                Nombre Guerrero
+                {{ http.players?.results[1]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.players?.results[1]?.level }}
             </div>
         </div>
-        <div class="threeth_position text_position">
+        <div *ngIf="http.players?.results[2]" class="threeth_position text_position">
             <div class="position">
                 3
             </div>
             <div class="war">
-                Nombre Guerrero
+                {{ http.players?.results[2]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.players?.results[2]?.level }}
             </div>
         </div>
-        <div class="fourth_position text_position">
+        <div *ngIf="http.players?.results[3]" class="fourth_position text_position">
             <div class="position">
                 4
             </div>
             <div class="war">
-                Nombre Guerrero
+                {{ http.players?.results[3]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.players?.results[3]?.level }}
             </div>
         </div>
-        <div class="fith_position text_position">
+        <div *ngIf="http.players?.results[4]" class="fith_position text_position">
             <div class="position">
                 5
             </div>
             <div class="war">
-                Nombre Guerrero
+                {{ http.players?.results[4]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.players?.results[4]?.level }}
             </div>
         </div>
     </aside>
@@ -79,13 +80,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private http: HttpService
+  ) { 
+      this.load_players()
+  }
 
   ngOnInit() {}
 
   show() {
     const rankings_user = document.getElementById('rankings_user');
     rankings_user.style.display = 'flex';
+  }
+
+  load_players() {
+    this.http.get_players().catch()
   }
 
 }

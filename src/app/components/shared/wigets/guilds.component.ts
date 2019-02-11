@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../../services/http.service';
+
 
 @Component({
   selector: 'app-guilds',
@@ -16,59 +18,59 @@ import { Component, OnInit } from '@angular/core';
         <p class="tittle">
             Ranking de Gremios
         </p>
-        <div class="fisrt_position text_position">
+        <div *ngIf="http.guilds?.results[0]" class="fisrt_position text_position">
             <div class="position">
                 1
             </div>
             <div class="war">
-                Nombre Gremio
+                {{ http.guilds?.results[0]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.guilds?.results[0]?.level }}
             </div>
         </div>
-        <div class="second_position text_position">
+        <div *ngIf="http.guilds?.results[1]" class="second_position text_position">
             <div class="position">
                 2
             </div>
             <div class="war">
-                Nombre Gremio
+                {{ http.guilds?.results[1]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.guilds?.results[1]?.level }}
             </div>
         </div>
-        <div class="threeth_position text_position">
+        <div *ngIf="http.guilds?.results[2]" class="threeth_position text_position">
             <div class="position">
                 3
             </div>
             <div class="war">
-                Nombre Gremio
+                {{ http.guilds?.results[2]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.guilds?.results[2]?.level }}
             </div>
         </div>
-        <div class="fourth_position text_position">
+        <div *ngIf="http.guilds?.results[3]" class="fourth_position text_position">
             <div class="position">
                 4
             </div>
             <div class="war">
-                Nombre Gremio
+                {{ http.guilds?.results[3]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.guilds?.results[3]?.level }}
             </div>
         </div>
-        <div class="fith_position text_position">
+        <div *ngIf="http.guilds?.results[4]" class="fith_position text_position">
             <div class="position">
                 5
             </div>
             <div class="war">
-                Nombre Gremio
+                {{ http.guilds?.results[4]?.name }}
             </div>
             <div class="level">
-                100
+                {{ http.guilds?.results[4]?.level }}
             </div>
         </div>
     </aside>
@@ -76,16 +78,24 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: []
 })
-export class GuildsComponent implements OnInit {
+export class GuildsComponent implements OnInit {  
+  guilds:any = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+      private http: HttpService
+  ) { 
+      this.load_guilds();
   }
+
+  ngOnInit() {}
 
   show(){
     const rankings_groups = document.getElementById('rankings_groups');
     rankings_groups.style.display = 'flex';
+  }
+
+  load_guilds() {
+      this.http.get_guilds().catch()
   }
 
 }
