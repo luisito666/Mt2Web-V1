@@ -9,6 +9,9 @@ import { UserManagerPasswdComponent } from './user-manager/user-manager-passwd.c
 import { UserManagerDonationsComponent } from './user-manager/user-manager-donations.component';
 import { PlayersComponent } from './wigets/players.component';
 import { GuildsComponent } from './wigets/guilds.component';
+import { LoginComponent } from './login/login.component';
+import { StaticsComponent } from './wigets/statics.component';
+import { SidebarComponent } from './wigets/sidebar.component';
 
 
 @NgModule({
@@ -19,12 +22,16 @@ import { GuildsComponent } from './wigets/guilds.component';
         UserManagerPasswdComponent,
         UserManagerDonationsComponent,
         PlayersComponent,
-        GuildsComponent
+        GuildsComponent,
+        LoginComponent,
+        StaticsComponent,
+        SidebarComponent,
     ],
     imports: [ CommonModule ],
     exports: [
         NavbarComponent,
-        UserManagerComponent
+        UserManagerComponent,
+        LoginComponent
     ],
     providers: [],
 })

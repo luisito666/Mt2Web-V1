@@ -3,16 +3,17 @@
 html,body {
     margin:0px;    
     height:100%;
-}
-
-.pointer {
-    cursor: pointer;
+    background-color: black;
 }
 
 #main {
     display: inline-block;
     width: 100%;
     height: 100%;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 980px) and (orientation: portrait) {
@@ -30,7 +31,7 @@ html,body {
         justify-content: space-between;
     }
 
-    .bar > .bar_logo {
+    .bar .bar_logo {
         background: url(/assets/img/SM_/Metin2_logo2.png) no-repeat center;
         height: 33%;
         width: 27%;
@@ -38,13 +39,13 @@ html,body {
         border: none;
     }
 
-    .bar > .sign_in {
-        margin: 6%;
+    .bar .sign_in {
+
         color: white;
         font-size: 2.5em;
     }
 
-    .bar > .signIn {
+    .bar .signIn {
         margin: 6%;
         color: white;
         font-size: 2.5em;
@@ -139,16 +140,20 @@ html,body {
         justify-content: center;
         align-items: center;
         background: url(/assets/img/SM_/SM_Metin2_background_0.jpg) no-repeat center;
+        background-size: cover;
     }
     .cap2 {
         background: url(/assets/img/SM_/SM_Metin2_background_1.jpg) no-repeat center;
+        background-size: cover;
     }
     
     .cap3 {
         background: url(/assets/img/SM_/SM_Metin2_background_2.jpg) no-repeat center;
+        background-size: cover;
     }
     .cap4 {
         background: url(/assets/img/SM_/SM_Metin2_background_3.jpg) no-repeat center;
+        background-size: cover;
     }
     .cap6 {
         display: flex;
@@ -156,12 +161,15 @@ html,body {
         justify-content: center;
         align-items: center;
         background: url(/assets/img/SM_/SM_Metin2_background_4.jpg) no-repeat center;
+        background-size: cover;
     }
     .cap7 {
         background: url(/assets/img/SM_/SM_Metin2_background_5.jpg) no-repeat center;
+        background-size: cover;
     }
     .cap8 {
         background: url(/assets/img/SM_/SM_Metin2_background_6.jpg) no-repeat center;
+        background-size: cover;
     }
 
     /* Manejo del formulario de registro */
@@ -229,9 +237,63 @@ html,body {
 
 
 @media screen and (min-width: 980px)and (orientation: landscape) {
+    /*Información sobre el serve*/
+    .info_players {
+        position: fixed;
+        top: 20%;
+        left: 2%;
+        height: 3%;
+        width: 20%;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 1.1em;
+        z-index: 0;
+    }
+
+    .info_registers {
+        position: fixed;
+        top: 23%;
+        left: 2%;
+        height: 3%;
+        width: 20%;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 1.1em;
+        z-index: 0;
+    }
+
+    .info_characters {
+        position: fixed;
+        top: 26%;
+        left: 2%;
+        height: 3%;
+        width: 20%;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 1.1em;
+        z-index: 0;
+    }
+
+    .nav_uncle {
+        position: fixed;
+        top: 25%;
+        left: 93%;
+        height: 50px;
+        width: 50px;
+        background-color: #770000;
+        border: none;
+        outline: none;
+        font-size: 2em;
+        z-index: 1;
+        border-radius: 50px;
+    }  
+
     /* Modal Para Información variada */
-    .modal_info{
-        display: flex;
+    .modal_info {
+        display: none;
         position: fixed;
         z-index: 1;
         padding-top: 100px;
@@ -269,6 +331,77 @@ html,body {
         font-size: 1.5em;
     }
 
+    /* Modal Inicio de Sesión */
+    .modal_sign_in {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 90%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.6);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+        .modal_sign_in .menu {
+            width: 50%;
+            height: 35%;
+            background-color: #770000;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+        }
+    
+    .form_sign_in {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+    }
+        .form_sign_in .title_sign_in {
+            align-self: center;
+            font-size: 2em;
+            margin: 3%;
+            color: white;
+        }
+    
+        .form_sign_in .input_sign_in {
+            height: 15%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+            .form_sign_in .input_sign_in label {
+                width: 37%;
+                text-align: end;
+                padding-right: 3%;
+                font-size: 1.5em;
+                color: white;
+            }
+            .form_sign_in .input_sign_in input {
+                font-size: 1.5em;
+                border-radius: 10px;
+            }
+    
+    .form_sign_in .button {
+        font-size: 1.5em;
+        border-radius: 10px;
+        align-self: center;
+        margin-top: 3%;
+    }
+
     /* Modal Administrador de Usuario */
     .manager_user {
         display: none;
@@ -287,49 +420,49 @@ html,body {
         align-items: center
     }
 
-    .manager_user .menu {
-        width: 70%;
-        height: 80%;
-        background-color: #770000;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: stretch;
-    }
+        .manager_user .menu {
+            width: 70%;
+            height: 80%;
+            background-color: #770000;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+        }
 
-    .menu > .tabs_menu {
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-        background-color: black;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
+            .menu .tabs_menu {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                background-color: black;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
 
-    .tabs_menu > .tabs {
-        font-size: 1.5em;
-        height: 10%;
-        text-align: start;
-        border: none;
-        outline: none;
-        background-color: black;
-        color: white;
-    }
+                .tabs_menu .tabs {
+                    font-size: 1.5em;
+                    height: 10%;
+                    text-align: start;
+                    border: none;
+                    outline: none;
+                    background-color: black;
+                    color: white;
+                }
 
-    .tabs_menu .tabs.active {
-        background-color: #770000;
-    }
+                .tabs_menu .tabs.active {
+                    background-color: #770000;
+                }
     
-    .menu > .content_menu {
-        width: 80%;
-    }
+            .menu > .content_menu {
+                width: 80%;
+            }
 
-    .content {
-       padding: 5%;
-    }
+                .content {
+                    padding: 5%;
+                }
 
     /* Barra de menú */
     .bar {
@@ -340,48 +473,77 @@ html,body {
         height: 19%;
         background: url(/assets/img/L_/L_Metin2_Bar.png) no-repeat;
         background-size: cover;
+    }
+
+    .bar .barcontent{
+        width: 100%;
+        height: 68%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    .bar > .bar_logo {
-        background: url(/assets/img/L_/L_Metin2_logo2.png) no-repeat center;
-        height: 48%;
-        width: 27%;
-        margin: 2%;
-        border: none;
-    }
 
-    .bar > .sign_in {
-        margin: 2%;
-        color: white;
-        font-size: 1em;
-    }
+        .barcontent .server{
+            height: 100%;
+            width: 40%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        } 
 
-    .bar > .sign_on {
-        margin: 2%;
-        color: white;
-        font-size: 1em;
-    }
+            .barcontent .bar_logo {
+                width: 80%;
+                height: 100%;
+                background: url(/assets/img/L_/L_Metin2_logo2.png) no-repeat center;
+                border: none;
+            }
+
+            .barcontent .state{
+                width: 20%;
+                font-size: 1.5em;
+                color: white;
+            }
+
+        .barcontent .agent_action{
+            height: 100%;
+            width: 30%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            align-items: center;
+        } 
+
+            .agent_action .sign_in {
+                width: 50%;
+                font-size: 1.5em;
+                color: white;
+            }
+
+            .agent_action  .sign_on {
+                width: 50%;
+                color: white;
+                font-size: 1em;
+            }
 
     /* Clases para los menús de los rankings*/
     .btn_rankings_user {
         position: fixed;
-        top: 30%;
+        top: 40%;
         height: 8%;
         width: 5%;
         background-color: #770000;
         border: none;
         outline: none;
         font-size: 2em;
-        z-index: 0;
+        z-index: 1;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
     }  
 
     .btn_rankings_groups {
         position: fixed;
-        top: 45%;
+        top: 55%;
         height: 8%;
         width: 5%;
         background-color: #770000;

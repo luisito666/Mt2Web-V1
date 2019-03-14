@@ -6,7 +6,6 @@ import { HttpService } from '../../../services/http.service';
   selector: 'app-guilds',
   template: `
   <button 
-    (click)="show()"
     class="btn_rankings_groups pointer" 
     id="btn_rankings_groups">
     
@@ -88,11 +87,6 @@ export class GuildsComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-  show(){
-    const rankings_groups = document.getElementById('rankings_groups');
-    rankings_groups.style.display = 'flex';
-  }
 
   load_guilds() {
       this.http.get_guilds().catch()

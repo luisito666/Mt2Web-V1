@@ -5,7 +5,6 @@ import { HttpService } from '../../../services/http.service';
   selector: 'app-players',
   template: `
   <button 
-    (click)="show()"
     class="btn_rankings_user pointer" 
     id="btn_rankings_user">
 
@@ -87,11 +86,6 @@ export class PlayersComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-  show() {
-    const rankings_user = document.getElementById('rankings_user');
-    rankings_user.style.display = 'flex';
-  }
 
   load_players() {
     this.http.get_players().catch()
