@@ -3,6 +3,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 // importando interfaces
 import { Account } from '../../../interfaces/account';
+import { SignupService } from 'src/app/services/signup.service';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -17,6 +20,7 @@ import { Account } from '../../../interfaces/account';
 export class SignupComponent implements OnInit {
 
   sigupForm: FormGroup;
+  username: string;
 
   checkbox: boolean;
 
@@ -28,14 +32,16 @@ export class SignupComponent implements OnInit {
     email: null,
     social_id: 1234567,
     checkbox: false
-  }
+  };
 
-  constructor() {
+  constructor(
+    private service: SignupService
+  ) {
     this.sigupForm = new FormGroup({
       'login': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
-      ]),
+      ], [ this.verifyUser.bind(this) ]),
       'password': new FormControl('', [
         Validators.required,
         Validators.minLength(4)
@@ -50,11 +56,11 @@ export class SignupComponent implements OnInit {
       ]),
       'email': new FormControl('', [
         Validators.required,
-        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')
       ]),
       'social_id': new FormControl('', [
         Validators.required,
-        Validators.pattern(".{7,7}")
+        Validators.pattern('.{7,7}')
       ]),
       'checkbox': new FormControl('', [
         Validators.required
@@ -67,12 +73,33 @@ export class SignupComponent implements OnInit {
   }
 
   send() {
-    let data = this.sigupForm.value;
+    const data = this.sigupForm.value;
     delete data.password_again;
     delete data.checkbox;
-    console.log(data);
-    this.sigupForm.reset(this.account);
+    this.service.signup(data);
   }
 
+  public verifyUser(control: FormControl): Promise<any> | Observable<any> {
+    const usuario = control.value.toLowerCase();
+
+    const promesa = new Promise( (resolve, reject) => {
+      this.service.check_user( usuario ).then( (user: any) => {
+        console.log(user);
+        if (user.data.login) {
+          this.username =  user.data.login;
+        }
+      });
+      if (this.username === usuario) {
+        resolve({existe: true});
+      } else {
+        resolve( null );
+      }
+
+    });
+
+    return promesa;
+
+
+  }
 
 }

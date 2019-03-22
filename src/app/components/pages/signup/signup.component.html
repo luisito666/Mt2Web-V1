@@ -76,13 +76,21 @@
                 formControlName="checkbox"
                 type="checkbox">
         </div>
+
+        <div class="input_sign_up" for="name" *ngIf="service.showMessage">            
+            <label> * {{ service.errorMessage }}  </label>
+        </div>
+
         <button 
             class="button pointer" 
             type="submit"
             [disabled]="!sigupForm.valid || sigupForm.value.password != sigupForm.value.password_again || !sigupForm.value.checkbox ">
             Registrarse
         </button>
+
+        <small> </small>
     </form>
+    
     <img class="character inverse_character" src="/assets/img/SM_/SM_Metin2_Character_2.png">
 </div>
 
