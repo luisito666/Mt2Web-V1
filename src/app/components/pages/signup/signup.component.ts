@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
   };
 
   constructor(
-    private service: SignupService
+    public service: SignupService
   ) {
     this.sigupForm = new FormGroup({
       'login': new FormControl('', [
@@ -77,29 +77,38 @@ export class SignupComponent implements OnInit {
     delete data.password_again;
     delete data.checkbox;
     this.service.signup(data);
+    this.sigupForm.reset(this.account);
   }
 
   public verifyUser(control: FormControl): Promise<any> | Observable<any> {
     const usuario = control.value.toLowerCase();
 
     const promesa = new Promise( (resolve, reject) => {
-      this.service.check_user( usuario ).then( (user: any) => {
-        console.log(user);
-        if (user.data.login) {
-          this.username =  user.data.login;
+      this.servicio(usuario);
+      setTimeout( () => {
+        if (this.username === usuario) {
+          resolve({existe: true});
+        } else {
+          resolve( null );
         }
-      });
-      if (this.username === usuario) {
-        resolve({existe: true});
-      } else {
-        resolve( null );
-      }
+      }, 3000);
 
     });
 
     return promesa;
 
+  }
 
+  public servicio(usuario: string) {
+    this.service.check_user( usuario ).subscribe(
+      (user: any) => {
+        if (user.data.login) {
+          this.username =  user.data.login;
+        }
+      },
+      () => {
+      this.username = '';
+    });
   }
 
 }

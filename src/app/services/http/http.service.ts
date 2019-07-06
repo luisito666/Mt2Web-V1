@@ -48,9 +48,9 @@ export class HttpService {
     await this.post(url, userForm).toPromise();
   }
 
-  async verify_user(username: string) {
+  verify_user(username: string) {
     const url = `${this.baseUrl}/api/v1/info/${username}`;
-    await this.get(url).toPromise();
+    return this.get(url);
   }
 
 }

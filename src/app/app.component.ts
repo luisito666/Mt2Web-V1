@@ -10,7 +10,7 @@ declare function init_script();
 export class AppComponent implements OnInit {
   title = 'spametin2';
 
-  ngOnInit(){
+  ngOnInit() {
     init_script();
   }
 }

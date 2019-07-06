@@ -35,6 +35,7 @@
         </div>
         <div class="input_sign_up">
             <label *ngIf="sigupForm.controls['login'].errors?.required && sigupForm.controls['login'].touched" for="name">* El usuario es obligatorio.</label>
+            <label *ngIf="sigupForm.controls['login'].errors?.existe && sigupForm.controls['login'].touched" for="name">* El nombre de usuario ya se encuentra registrado.</label>
             <label *ngIf="sigupForm.controls['login'].errors?.minlength" for="name">* Por lo menos 4 caracteres.</label>
         </div>
         <div class="input_sign_up">

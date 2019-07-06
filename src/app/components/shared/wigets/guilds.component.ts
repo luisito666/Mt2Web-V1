@@ -5,10 +5,9 @@ import { HttpService } from '../../../services/http/http.service';
 @Component({
   selector: 'app-guilds',
   template: `
-  <button 
-    class="btn_rankings_groups pointer" 
+  <button
+    class="btn_rankings_groups pointer"
     id="btn_rankings_groups">
-    
     <i class="fas fa-users"></i>
   </button>
 
@@ -77,19 +76,19 @@ import { HttpService } from '../../../services/http/http.service';
   `,
   styles: []
 })
-export class GuildsComponent implements OnInit {  
-  guilds:any = [];
+export class GuildsComponent implements OnInit {
+  guilds: any = [];
 
   constructor(
-      private http: HttpService
-  ) { 
+      public http: HttpService
+  ) {
       this.load_guilds();
   }
 
   ngOnInit() {}
 
   load_guilds() {
-      this.http.get_guilds().catch()
+      this.http.get_guilds().catch();
   }
 
 }
