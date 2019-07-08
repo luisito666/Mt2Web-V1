@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 // import services
-import { HttpService } from './http.service';
+import { HttpService } from './http/http.service';
 
 @NgModule({
     declarations: [],
@@ -14,16 +14,16 @@ import { HttpService } from './http.service';
 })
 
 export class ServicesModule {
-    static forRoot(){
+    static forRoot() {
         return {
             ngModule: ServicesModule,
             providers: [
                 HttpService
             ]
-        }
+        };
     }
 }
 
 export {
     HttpService
-}
+};

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../../services/http.service';
+import { HttpService } from '../../../services/http/http.service';
 
 
 @Component({
@@ -77,19 +77,20 @@ import { HttpService } from '../../../services/http.service';
   `,
   styles: []
 })
-export class GuildsComponent implements OnInit {  
-  guilds:any = [];
+export class GuildsComponent implements OnInit {
+
+    guilds: any = [];
 
   constructor(
       private http: HttpService
-  ) { 
+  ) {
       this.load_guilds();
   }
 
   ngOnInit() {}
 
   load_guilds() {
-      this.http.get_guilds().catch()
+      this.http.get_guilds().catch();
   }
 
 }
