@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-user-manager',
@@ -7,10 +8,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class UserManagerComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('manager') modal: ElementRef;
+
+  constructor(
+    public login: LoginService
+  ) { }
 
   ngOnInit() {
     document.getElementById('default').click();
+  }
+
+  logout() {
+    this.login.logout();
+    this.modal.nativeElement.style.display = 'none';
+
   }
 
   showMenu(event, menu) {

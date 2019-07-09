@@ -1,4 +1,4 @@
-<section #manager_user id="manager_user" class="manager_user">
+<section #manager id="manager_user" class="manager_user">
     <div class="menu">
         <section class="tabs_menu">
             <button class="tabs pointer" 
@@ -14,6 +14,10 @@
             <button class="tabs pointer" 
                     (click)="showMenu($event, '3')">
                 Donar
+            </button>
+            <button class="tabs pointer"
+                    (click)="logout()">
+                Cerrar Session
             </button>
         </section>
         <section class="content_menu">

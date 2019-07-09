@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AccountSend } from '../../interfaces/account';
+import { User } from '../../interfaces/user.simple';
 
 
 @Injectable()
@@ -51,6 +52,12 @@ export class HttpService {
   verify_user(username: string) {
     const url = `${this.baseUrl}/api/v1/info/${username}`;
     return this.get(url);
+  }
+
+  login(login_data: User) {
+    const url = `${this.baseUrl}/api/v1/token/`;
+    const body = JSON.stringify(login_data);
+    return this.http.post(url, body, this.get_headers());
   }
 
 }

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 // Importando componentes.
 import { NavbarComponent } from './navbar/navbar.component';
@@ -27,7 +30,12 @@ import { SidebarComponent } from './wigets/sidebar.component';
         StaticsComponent,
         SidebarComponent,
     ],
-    imports: [ CommonModule ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule
+    ],
     exports: [
         NavbarComponent,
         UserManagerComponent,
